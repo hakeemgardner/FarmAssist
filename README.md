@@ -1,1 +1,1 @@
-# FarmAssist
+# agri-ai-v2
