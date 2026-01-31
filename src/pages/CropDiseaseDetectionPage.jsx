@@ -60,7 +60,7 @@ export const CropDiseaseDetectionPage = () => {
             "Api-Key": api_key,
           },
           body: JSON.stringify({ images: [base64] }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -88,7 +88,7 @@ export const CropDiseaseDetectionPage = () => {
       setIsLoading(false);
     }
   };
-// Hello world
+  // Hello world
   // Gemini Advice
   const ai = new GoogleGenAI({ apiKey: gemini_api });
   const prompt = `
@@ -207,7 +207,7 @@ Keep the language clear and simple for farmers. Do not include any livestock adv
                           disabled={isLoading}
                           className="rounded-lg bg-white px-6 py-3 font-bold text-green-600 shadow-md transition-all duration-200 hover:scale-105 hover:shadow-xl disabled:cursor-not-allowed disabled:opacity-50"
                         >
-                          {isLoading ? "Loading..." : "Ask Agri-AI"}
+                          {isLoading ? "Loading..." : "Ask FarmWise-AI"}
                         </button>
                       </div>
                     </div>

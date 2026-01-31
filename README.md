@@ -1,1 +1,1 @@
-# agri-ai-v2
+# farm-wise

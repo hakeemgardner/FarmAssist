@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { Sprout, Mail, Lock, User, Phone, MapPin, ArrowRight } from "lucide-react";
+import {
+  Sprout,
+  Mail,
+  Lock,
+  User,
+  Phone,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
 import { SignUpUser } from "../../database/auth/SignUpUser";
 import { createFarmer } from "../../database/farmer_service/create_farmer";
 import { useNavigate } from "react-router";
@@ -7,52 +15,54 @@ import { useNavigate } from "react-router";
 export const SignUpPage = () => {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({
-    email: '',
-    password: '',
-    authpassword: '',
-    name: '',
-    telephone: '',
-    parish: ''
+    email: "",
+    password: "",
+    authpassword: "",
+    name: "",
+    telephone: "",
+    parish: "",
   });
-  
-  function handleOnChange(event){
+
+  function handleOnChange(event) {
     setFormData((prevData) => {
       return {
         ...prevData,
         [event.target.name]: event.target.value,
-      }
-    })
+      };
+    });
   }
-  
+
   async function onSubmit(e) {
     e.preventDefault();
     if (formData.authpassword != formData.password) {
       alert("Passwords aren't the same");
       return;
     }
-    const data = await SignUpUser({ email: formData.email, password: formData.password });
+    const data = await SignUpUser({
+      email: formData.email,
+      password: formData.password,
+    });
     console.log("SignUpUser data:", data);
-    
+
     if (data) {
       // Get the user ID from the auth response
       const userId = data.user?.uid || data.user?.id || data.uid || data.id;
       console.log("User ID to be saved:", userId);
-      
-      await createFarmer({ 
-        name: formData.name, 
-        email: formData.email, 
-        parish: formData.parish, 
+
+      await createFarmer({
+        name: formData.name,
+        email: formData.email,
+        parish: formData.parish,
         telephone: formData.telephone,
-        user_id: userId
+        user_id: userId,
       });
       navigate("/login");
     }
   }
-  
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50 flex items-center justify-center p-4">
       <div className="w-full max-w-6xl grid md:grid-cols-2 gap-8 items-center">
-        
         {/* Left Side - Info Section */}
         <div className="hidden md:flex flex-col justify-center space-y-6 px-8">
           <div className="flex items-center space-x-3">
@@ -60,25 +70,39 @@ export const SignUpPage = () => {
               <Sprout className="w-8 h-8 text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-gray-800">AgriAI</h1>
-              <p className="text-green-700 font-medium">Empowering Jamaican Farmers</p>
+              <h1 className="text-4xl font-bold text-gray-800">FarmWise</h1>
+              <p className="text-green-700 font-medium">
+                Empowering Jamaican Farmers
+              </p>
             </div>
           </div>
-          
+
           <div className="space-y-4">
             <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-green-100">
-              <h3 className="font-semibold text-lg text-gray-800 mb-2">🌱 Smart Crop Planning</h3>
-              <p className="text-gray-600 text-sm">AI-powered insights for optimal planting schedules</p>
+              <h3 className="font-semibold text-lg text-gray-800 mb-2">
+                🌱 Smart Crop Planning
+              </h3>
+              <p className="text-gray-600 text-sm">
+                AI-powered insights for optimal planting schedules
+              </p>
             </div>
-            
+
             <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-green-100">
-              <h3 className="font-semibold text-lg text-gray-800 mb-2">📊 Market Intelligence</h3>
-              <p className="text-gray-600 text-sm">Real-time pricing and demand forecasting</p>
+              <h3 className="font-semibold text-lg text-gray-800 mb-2">
+                📊 Market Intelligence
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Real-time pricing and demand forecasting
+              </p>
             </div>
-            
+
             <div className="bg-white/60 backdrop-blur-sm p-6 rounded-2xl border border-green-100">
-              <h3 className="font-semibold text-lg text-gray-800 mb-2">🤝 Community Network</h3>
-              <p className="text-gray-600 text-sm">Connect with farmers and suppliers nationwide</p>
+              <h3 className="font-semibold text-lg text-gray-800 mb-2">
+                🤝 Community Network
+              </h3>
+              <p className="text-gray-600 text-sm">
+                Connect with farmers and suppliers nationwide
+              </p>
             </div>
           </div>
         </div>
@@ -86,21 +110,24 @@ export const SignUpPage = () => {
         {/* Right Side - Form */}
         <div className="w-full">
           <div className="bg-white rounded-3xl shadow-2xl p-8 md:p-12">
-            
             {/* Mobile Logo */}
             <div className="md:hidden flex items-center justify-center space-x-3 mb-8">
               <div className="bg-green-600 p-2 rounded-lg">
                 <Sprout className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-800">AgriAI</h1>
-                <p className="text-green-700 text-sm font-medium">Empowering Jamaican Farmers</p>
+                <h1 className="text-2xl font-bold text-gray-800">FarmWise</h1>
+                <p className="text-green-700 text-sm font-medium">
+                  Empowering Jamaican Farmers
+                </p>
               </div>
             </div>
 
             {/* Form Header */}
             <div className="mb-8">
-              <h2 className="text-3xl font-bold text-gray-800 mb-2">Create Account</h2>
+              <h2 className="text-3xl font-bold text-gray-800 mb-2">
+                Create Account
+              </h2>
               <p className="text-gray-600">Join our community of farmers</p>
             </div>
 
@@ -109,7 +136,10 @@ export const SignUpPage = () => {
               {/* Name and Phone Row */}
               <div className="grid md:grid-cols-2 gap-4">
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Full Name
                   </label>
                   <div className="relative">
@@ -128,7 +158,10 @@ export const SignUpPage = () => {
                 </div>
 
                 <div>
-                  <label htmlFor="telephone" className="block text-sm font-medium text-gray-700 mb-2">
+                  <label
+                    htmlFor="telephone"
+                    className="block text-sm font-medium text-gray-700 mb-2"
+                  >
                     Phone Number
                   </label>
                   <div className="relative">
@@ -149,7 +182,10 @@ export const SignUpPage = () => {
 
               {/* Parish */}
               <div>
-                <label htmlFor="parish" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="parish"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Parish
                 </label>
                 <div className="relative">
@@ -169,7 +205,10 @@ export const SignUpPage = () => {
 
               {/* Email */}
               <div>
-                <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="email"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Email Address
                 </label>
                 <div className="relative">
@@ -189,7 +228,10 @@ export const SignUpPage = () => {
 
               {/* Password */}
               <div>
-                <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="password"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Password
                 </label>
                 <div className="relative">
@@ -209,7 +251,10 @@ export const SignUpPage = () => {
 
               {/* Confirm Password */}
               <div>
-                <label htmlFor="authpassword" className="block text-sm font-medium text-gray-700 mb-2">
+                <label
+                  htmlFor="authpassword"
+                  className="block text-sm font-medium text-gray-700 mb-2"
+                >
                   Confirm Password
                 </label>
                 <div className="relative">
@@ -241,7 +286,7 @@ export const SignUpPage = () => {
             <div className="mt-8 text-center">
               <p className="text-gray-600 text-sm mb-4">
                 Already have an account?{" "}
-                <button 
+                <button
                   type="button"
                   onClick={() => navigate("/login")}
                   className="text-green-600 hover:text-green-700 font-semibold"
@@ -258,4 +303,4 @@ export const SignUpPage = () => {
       </div>
     </div>
   );
-}
+};

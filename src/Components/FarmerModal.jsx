@@ -1,4 +1,4 @@
-import { X, Phone, Mail, MapPin, User } from 'lucide-react';
+import { X, Phone, Mail, MapPin, User } from "lucide-react";
 
 function FarmerModal({ isOpen, onClose, farmer }) {
   console.log(farmer);
@@ -7,11 +7,11 @@ function FarmerModal({ isOpen, onClose, farmer }) {
   const date = new Date(farmerData.created_at);
 
   return (
-    <div 
+    <div
       className="fixed inset-0 bg-blur bg-opacity-50 flex items-center justify-center p-4 z-50 animate-fade-in"
       onClick={onClose}
     >
-      <div 
+      <div
         className=" bg-white rounded-2xl shadow-2xl max-w-lg w-full max-h-[90vh] overflow-y-auto animate-scale-in"
         onClick={(e) => e.stopPropagation()}
       >
@@ -35,14 +35,21 @@ function FarmerModal({ isOpen, onClose, farmer }) {
               <User size={32} className="text-green-600 dark:text-green-400" />
             </div>
             <div>
-              <h3 className="text-2xl font-bold text-content-light dark:text-content-dark">{farmerData.name}</h3>
-              <p className="text-content-light/70 dark:text-content-dark/70">Joined AgriAI from { date.toLocaleString('default', {month: 'long'}) }</p>
+              <h3 className="text-2xl font-bold text-content-light dark:text-content-dark">
+                {farmerData.name}
+              </h3>
+              <p className="text-content-light/70 dark:text-content-dark/70">
+                Joined FarmWise from{" "}
+                {date.toLocaleString("default", { month: "long" })}
+              </p>
             </div>
           </div>
 
           {/* Bio */}
           <div className="mb-6">
-            <p className="text-content-light/80 dark:text-content-dark/80 italic leading-relaxed">{farmer.bio}</p>
+            <p className="text-content-light/80 dark:text-content-dark/80 italic leading-relaxed">
+              {farmer.bio}
+            </p>
           </div>
 
           {/* Contact Information */}
@@ -52,8 +59,13 @@ function FarmerModal({ isOpen, onClose, farmer }) {
                 <Phone size={20} className="text-blue-600 dark:text-blue-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-content-light/60 dark:text-content-dark/60 mb-1">Phone</p>
-                <a href={`tel:${farmerData.telephone}`} className="text-content-light dark:text-content-dark hover:text-green-500 transition-colors">
+                <p className="text-sm font-semibold text-content-light/60 dark:text-content-dark/60 mb-1">
+                  Phone
+                </p>
+                <a
+                  href={`tel:${farmerData.telephone}`}
+                  className="text-content-light dark:text-content-dark hover:text-green-500 transition-colors"
+                >
                   {farmerData.telephone}
                 </a>
               </div>
@@ -61,11 +73,19 @@ function FarmerModal({ isOpen, onClose, farmer }) {
 
             <div className="flex items-start">
               <div className="w-10 h-10 bg-purple-100 dark:bg-purple-900/30 rounded-lg flex items-center justify-center mr-4 flex-shrink-0">
-                <Mail size={20} className="text-purple-600 dark:text-purple-400" />
+                <Mail
+                  size={20}
+                  className="text-purple-600 dark:text-purple-400"
+                />
               </div>
               <div>
-                <p className="text-sm font-semibold text-content-light/60 dark:text-content-dark/60 mb-1">Email</p>
-                <a href={`mailto:${farmerData.email}`} className="text-content-light dark:text-content-dark hover:text-green-500 transition-colors break-all">
+                <p className="text-sm font-semibold text-content-light/60 dark:text-content-dark/60 mb-1">
+                  Email
+                </p>
+                <a
+                  href={`mailto:${farmerData.email}`}
+                  className="text-content-light dark:text-content-dark hover:text-green-500 transition-colors break-all"
+                >
                   {farmerData.email}
                 </a>
               </div>
@@ -76,8 +96,12 @@ function FarmerModal({ isOpen, onClose, farmer }) {
                 <MapPin size={20} className="text-red-600 dark:text-red-400" />
               </div>
               <div>
-                <p className="text-sm font-semibold text-content-light/60 dark:text-content-dark/60 mb-1">Location</p>
-                <p className="text-content-light dark:text-content-dark">{farmerData.parish}</p>
+                <p className="text-sm font-semibold text-content-light/60 dark:text-content-dark/60 mb-1">
+                  Location
+                </p>
+                <p className="text-content-light dark:text-content-dark">
+                  {farmerData.parish}
+                </p>
               </div>
             </div>
           </div>
@@ -93,8 +117,6 @@ function FarmerModal({ isOpen, onClose, farmer }) {
             <a
               href={`mailto:${farmer.email}`}
               className="flex-1 bg-green-400 hover:bg-green-500 text-content-dark font-semibold py-3 px-4 rounded-lg transition-colors text-center"
-              
-             
             >
               Send Email
             </a>
@@ -104,8 +126,12 @@ function FarmerModal({ isOpen, onClose, farmer }) {
 
       <style jsx>{`
         @keyframes fade-in {
-          from { opacity: 0; }
-          to { opacity: 1; }
+          from {
+            opacity: 0;
+          }
+          to {
+            opacity: 1;
+          }
         }
         @keyframes scale-in {
           from {

@@ -41,7 +41,7 @@ export const LoginPage = () => {
               <Sprout className="w-8 h-8 text-white" />
             </div>
             <div>
-              <h1 className="text-4xl font-bold text-gray-800">AgriAI</h1>
+              <h1 className="text-4xl font-bold text-gray-800">FarmWise</h1>
               <p className="text-green-700 font-medium">
                 Empowering Jamaican Farmers
               </p>
@@ -85,7 +85,7 @@ export const LoginPage = () => {
                 <Sprout className="w-6 h-6 text-white" />
               </div>
               <div>
-                <h1 className="text-2xl font-bold text-gray-800">AgriAI</h1>
+                <h1 className="text-2xl font-bold text-gray-800">FarmWise</h1>
                 <p className="text-green-700 text-sm font-medium">
                   Empowering Jamaican Farmers
                 </p>
