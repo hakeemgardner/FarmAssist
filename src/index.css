@@ -1,13 +1,15 @@
 @import "tailwindcss";
 
 @theme {
-  /* Define your custom colors */
-  --color-primary: #73d411; /* Bright lime green */
-  --color-secondary: #d1e6bc; /* Soft pastel green */
-  --color-accent: #6c7167; /* Muted gray-green */
-  --color-background: #eaece9; /* Light gray-green for main background */
-  --color-background-light: #f7f8f6; /* Very light neutral background */
-  --color-background-muted: #f0f4eb; /* Subtle off-white green */
+  /* FarmWise AI Earth Brown Theme */
+  --color-primary: #8B5A2B; /* Rich earth brown */
+  --color-secondary: #D4A574; /* Warm tan */
+  --color-accent: #5D4E37; /* Deep soil brown */
+  --color-background: #F5F0E8; /* Warm cream background */
+  --color-background-light: #FAF8F5; /* Light cream */
+  --color-background-muted: #EDE6DB; /* Soft beige */
+  --color-earth-dark: #3D2914; /* Dark earth */
+  --color-harvest: #C4956A; /* Harvest gold */
 }
 
 h1, h2, h3, h4, h5, h6, p ,a {
